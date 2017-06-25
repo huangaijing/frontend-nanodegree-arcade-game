@@ -112,12 +112,12 @@ var Engine = (function(global) {
          * for that particular row of the game level.
          */
         var rowImages = [
-                'images/water-block.png',   // Top row is water
-                'images/stone-block.png',   // Row 1 of 3 of stone
-                'images/stone-block.png',   // Row 2 of 3 of stone
-                'images/stone-block.png',   // Row 3 of 3 of stone
-                'images/grass-block.png',   // Row 1 of 2 of grass
-                'images/grass-block.png'    // Row 2 of 2 of grass
+                'images/water-block.png', // Top row is water
+                'images/stone-block.png', // Row 1 of 3 of stone
+                'images/stone-block.png', // Row 2 of 3 of stone
+                'images/stone-block.png', // Row 3 of 3 of stone
+                'images/grass-block.png', // Row 1 of 2 of grass
+                'images/grass-block.png' // Row 2 of 2 of grass
             ],
             numRows = 6,
             numCols = 5,
@@ -139,10 +139,15 @@ var Engine = (function(global) {
                 ctx.drawImage(Resources.get(rowImages[row]), col * 101, row * 83);
             }
         }
-
+        renderScore();
         renderEntities();
     }
 
+    function renderScore() {
+        ctx.clearRect(0, 0, 300, 50);
+        ctx.font = '48px serif';
+        ctx.fillText('Score: ' + score, 0, 40);
+    };
     /* This function is called by the render function and is called on each game
      * tick. Its purpose is to then call the render functions you have defined
      * on your enemy and player entities within app.js
