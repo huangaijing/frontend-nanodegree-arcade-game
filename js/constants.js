@@ -1,3 +1,4 @@
+//Game Constants used in app.js
 var CONSTANTS = (function (global) {
     global.Constants = {
         MAP_ROWS: 6,
